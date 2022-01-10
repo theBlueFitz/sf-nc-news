@@ -2,37 +2,67 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header{
+  border: 2px solid purple;
+  background-color: rgb(243, 208, 243);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  border: 2px solid gold;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: space-around;
+  background-color: rgb(233, 227, 197);
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.articles{
+  border: 2px solid red;
+  background-color: rgb(236, 199, 199);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.articlecontainer{
+  border: 2px solid blue;
+  background-color: rgb(199, 199, 241);
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  display: grid;
+  grid-template-areas: 
+  "title title avatar"
+  "author published ."
+  "body body body";
+  justify-items: start;
+}
+
+.articleitem1{
+  background-color: grey;
+  color:white;
+  grid-area: title;
+}
+
+.articleitem2{
+  background-color: grey;
+  color:white;
+  grid-area: avatar;
+}
+
+.articleitem3{
+  background-color: grey;
+  color:white;
+  grid-area: author;
+}
+
+.articleitem4{
+  background-color: grey;
+  color:white;
+  grid-area: published;
+}
+
+.articleitem5{
+  background-color: grey;
+  color:white;
+  grid-area: body;
 }
