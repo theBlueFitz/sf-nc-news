@@ -1,24 +1,36 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getArticles } from "../utils/newsApi";
 import ArticleCard from "./ArticleCard";
 
 
 const Articles = () => {
-
     const [articleList, setArticleList] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+
+    const {topic} = useParams();
+
 
     useEffect(() => {
-        getArticles()
+        setIsLoading(true)
+        getArticles(topic)
         .then((articles) => {
+            setIsLoading(false);
             setArticleList(articles)
         })
-    }, [])
+    }, [topic])
 
-    console.log(articleList, '<<<<');
+    return <main className='articles'>
+        <h2>{topic} Articles</h2>
+        {isLoading ? <p>Please wait, loading...</p> : 
+        
+        <ul className='bulletless'>
+                {articleList.map((news) => {
+            return <ArticleCard news={news} key={news.article_id} />
+        })}
 
-    return <main>
-        <h2 className='articles'>Articles</h2>
-        <ArticleCard />
+        </ul>
+        }
     </main>
 }
 

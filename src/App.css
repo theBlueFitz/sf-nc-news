@@ -22,9 +22,17 @@
 .articles{
   border: 2px solid red;
   background-color: rgb(236, 199, 199);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
 }
 
 .articlecontainer{
+  width: 100%;
   border: 2px solid blue;
   background-color: rgb(199, 199, 241);
   grid-template-columns: auto auto auto;
@@ -32,9 +40,11 @@
   display: grid;
   grid-template-areas: 
   "title title avatar"
-  "author published ."
+  "author published fullarticle"
   "body body body";
   justify-items: start;
+  margin-left: 0%;
+  gap: 20px;
 }
 
 .articleitem1{
@@ -47,6 +57,7 @@
   background-color: grey;
   color:white;
   grid-area: avatar;
+  justify-self: end;
 }
 
 .articleitem3{
@@ -65,4 +76,90 @@
   background-color: grey;
   color:white;
   grid-area: body;
+}
+
+.articleitem6{
+  background-color: grey;
+  color:white;
+  grid-area: fullarticle;
+  justify-self: end;
+}
+
+.bulletless{
+  list-style: none;
+}
+
+.topiclist{
+  border: 3px solid salmon;
+  background-color: rgb(243, 198, 193);
+}
+
+.selectopic{
+  border: 3px solid greenyellow;
+  background-color: rgb(221, 245, 186);
+  list-style: none;
+}
+
+.singlearticle{
+  border: 3px solid pink;
+  background-color: rgb(139, 122, 124);
+  color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vote{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+ul{
+  list-style: none;
+}
+
+.commentcontainer{
+  width: 100%;
+  border: 2px solid green;
+  background-color: rgb(182, 235, 182);
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto auto;
+  display: grid;
+  grid-template-areas: 
+  "author"
+  "body"
+  "timestamp"
+  "votes";
+  justify-items: center;
+  margin-left: 0%;
+  gap: 20px;
+}
+
+.commentitem1{
+  background-color: grey;
+  color:white;
+  grid-area: author;
+  justify-self: start;
+}
+
+.commentitem2{
+  background-color: grey;
+  color:white;
+  grid-area: body;
+}
+
+.commentitem3{
+  background-color: grey;
+  color:white;
+  grid-area: timestamp;
+}
+
+.commentitem4{
+  background-color: grey;
+  color:white;
+  grid-area: votes;
+  padding: 10px;
+  
 }
