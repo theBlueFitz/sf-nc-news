@@ -10,6 +10,7 @@ import ArticleComments from './Components/ArticleComments';
 import { UserContext } from './context/User'
 import SetUser from './Components/SetUser';
 import { useState } from 'react';
+import AddComment from './Components/AddComment';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/article/:article_id' element={<SingleArticle />} />
           <Route path='/:article_id/comments' element={<ArticleComments />} />
           <Route path='/users' element={<SetUser />} />
+          <Route path='/:article_id/addcomment' element={<AddComment />} />
         </Routes>
       </BrowserRouter>
     </div>

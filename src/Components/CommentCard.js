@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { UserContext } from "../context/User";
+
 const CommentCard = ({comment}) => {
+    const { user } = useContext(UserContext)
+
     return <div className='commentcontainer'>
         <p className='commentitem1'>
             {comment.author}
@@ -14,6 +19,7 @@ const CommentCard = ({comment}) => {
             <button>🔼</button>
             <button>🔽</button>
         </p>
+        {(user.username === comment.author) ? <button className='commentitem5'>Delete</button> : null}
     </div>
 }
 

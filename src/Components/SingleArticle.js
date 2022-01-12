@@ -19,7 +19,7 @@ const SingleArticle = () => {
     const upVote = () => {
         const inc_votes = 1;
         setVotes((votes)=>{
-            const newVotes = votes += 1;
+            const newVotes = votes + 1;
             return newVotes;
         })
         changeArticleVotes(article_id, inc_votes)
@@ -31,7 +31,7 @@ const SingleArticle = () => {
     const downVote = () => {
         const inc_votes = -1;
         setVotes((votes)=>{
-            const newVotes = votes -= 1;
+            const newVotes = votes - 1;
             return newVotes
         })
         changeArticleVotes(article_id, inc_votes)

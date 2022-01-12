@@ -5,11 +5,7 @@ const newsAPI = axios.create({
 });
 
 export const getArticles = (topic) => {
-    let path = '/articles?limit=1000'
-    if(topic) {
-        path += `&topic=${topic}`
-    }
-    return newsAPI.get(path)
+    return newsAPI.get('/articles', {params: {topic}})
     .then((news) => {
         return news.data.articles;
     })
@@ -27,8 +23,8 @@ export const getSingleArticle = (article_id) => {
     })
 }
 
-export const getArticleComments = (article_id) => {
-    return newsAPI.get(`/articles/${article_id}/comments`)
+export const getArticleComments = (article_id, limit=1000) => {
+    return newsAPI.get(`/articles/${article_id}/comments`, {params: {limit}})
     .then((res) => {
         return res.data.comments;
     })
@@ -45,5 +41,12 @@ export const getUsers = () => {
     return newsAPI.get('/users')
     .then((res) => {
         return res.data.users;
+    })
+}
+
+export const postComment = (article_id, comment) => {
+    return newsAPI.post(`/articles/${article_id}/comments`, comment)
+    .then((res) => {
+        return res;
     })
 }
