@@ -22,7 +22,6 @@ const SetUser = () => {
         })
     }
 
-
     return <div className='articles'>
         {user.username ? <span className='userexists'>Please log out first</span> : null}
         <ul className='topiclist'>

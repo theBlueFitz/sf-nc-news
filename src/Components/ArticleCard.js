@@ -3,8 +3,6 @@ import { Link } from "react-router-dom"
 const ArticleCard = ({news}) => {
     const bodyTease = news.body.split(' ').slice(0,9).join(' ')
 
-    
-
     return <div className='articlecontainer'>
         <p className='articleitem1'>
             {news.title}
@@ -24,6 +22,11 @@ const ArticleCard = ({news}) => {
         <Link to={`/article/${news.article_id}`} className='articleitem6'>
             Read more here!
             </Link> 
+        <p className='articleitem7'>
+            Comment count:{news.comment_count}
+            <br></br>
+            Votes: {news.votes}
+        </p>
     </div>
 }
 

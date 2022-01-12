@@ -71,7 +71,7 @@
   grid-template-areas: 
   "title title avatar"
   "author published fullarticle"
-  "body body body";
+  "body body stats";
   justify-items: start;
   margin-left: 0%;
   gap: 20px;
@@ -113,6 +113,13 @@
   color:white;
   grid-area: fullarticle;
   justify-self: end;
+}
+
+.articleitem7{
+  background-color: grey;
+  color:white;
+  grid-area: stats;
+  
 }
 
 .bulletless{
@@ -223,4 +230,14 @@ ul{
 .commentinput{
   width:100%;
   height: 150px;
+}
+
+.filtrationyBit{
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+  margin-right: 5%;
 }
