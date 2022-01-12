@@ -2,9 +2,20 @@
   text-align: center;
 }
 
-.header{
+.headercontainer{
   border: 2px solid purple;
   background-color: rgb(243, 208, 243);
+  display:grid;
+  grid-template-columns: 80% 20%;
+}
+
+.header{
+  justify-self: start;
+  margin-left: 3%;
+}
+
+.login{
+  margin-right: 0px;
 }
 
 .nav{
@@ -118,6 +129,8 @@
 
 ul{
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .commentcontainer{

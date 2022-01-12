@@ -16,7 +16,7 @@ const SingleArticle = () => {
         })
     }, [article_id])
 
-    const upVote = (event) => {
+    const upVote = () => {
         const inc_votes = 1;
         setVotes((votes)=>{
             const newVotes = votes += 1;
@@ -28,7 +28,7 @@ const SingleArticle = () => {
         })
     }
 
-    const downVote = (event) => {
+    const downVote = () => {
         const inc_votes = -1;
         setVotes((votes)=>{
             const newVotes = votes -= 1;
