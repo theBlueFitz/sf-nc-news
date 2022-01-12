@@ -7,10 +7,18 @@ import Topics from './Components/Topics';
 import Home from './Components/Home';
 import SingleArticle from './Components/SingleArticle';
 import ArticleComments from './Components/ArticleComments';
+import { UserContext } from './context/User'
+import SetUser from './Components/SetUser';
+import { useState } from 'react';
 
 
 function App() {
+  const [user, setUser] = useState({});
+  console.log({user}, 'entire app');
+
   return (
+    <UserContext.Provider value={{user, setUser}}>
+
     <div className="App">
       <BrowserRouter>
         <Header />
@@ -22,9 +30,12 @@ function App() {
           <Route path='/articles/:topic' element={<Articles />} />
           <Route path='/article/:article_id' element={<SingleArticle />} />
           <Route path='/:article_id/comments' element={<ArticleComments />} />
+          <Route path='/users' element={<SetUser />} />
         </Routes>
       </BrowserRouter>
     </div>
+
+    </UserContext.Provider>
   );
 }
 

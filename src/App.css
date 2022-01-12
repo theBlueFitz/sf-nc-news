@@ -7,15 +7,34 @@
   background-color: rgb(243, 208, 243);
   display:grid;
   grid-template-columns: 80% 20%;
+  grid-template-areas: 'header login';
 }
 
 .header{
   justify-self: start;
   margin-left: 3%;
+  grid-area: header;
 }
 
 .login{
-  margin-right: 0px;
+  justify-self: center;
+  align-self: center;
+  grid-area: login;
+  margin-top: 10px;
+  border-radius: 15px 0px;
+  width: 100px;
+  height: fit-content;
+}
+
+.logoutcheck{
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+}
+
+.userexists{
+  font-size: 50px;
 }
 
 .nav{

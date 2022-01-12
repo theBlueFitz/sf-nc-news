@@ -40,3 +40,10 @@ export const changeArticleVotes = (article_id, inc_votes) => {
         return res.data.article.votes;
     })
 }
+
+export const getUsers = () => {
+    return newsAPI.get('/users')
+    .then((res) => {
+        return res.data.users;
+    })
+}
