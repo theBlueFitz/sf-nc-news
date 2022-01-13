@@ -16,17 +16,19 @@ const Topics = () => {
         })
     }, [])    
 
-    return <div>
+    return <div className='articles'>
         {isLoading ? <p>Loading, please wait...</p> :
-                <ul className='topiclist'>
+                <ul>
                 {allTopics.map((item) => {
-                    return <li key={item.slug} className='selectopic'>
+                    return <li key={item.slug}>
                         <Link to={`/articles/${item.slug}`} topic={item.slug}>
-                        {item.slug}
-                        </ Link>
+                            <button>
+                                {item.slug}
                         <p>
                             {item.description}
                         </p>
+                            </button>
+                        </ Link>
                     </li>})
     
                 }

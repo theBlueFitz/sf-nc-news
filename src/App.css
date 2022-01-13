@@ -3,11 +3,16 @@
 }
 
 .headercontainer{
-  border: 2px solid purple;
-  background-color: rgb(243, 208, 243);
+  border: 2px solid black;
+  background-color: black;
+  color: white;
   display:grid;
   grid-template-columns: 80% 20%;
   grid-template-areas: 'header login';
+}
+
+h2{
+  text-decoration: underline;
 }
 
 .header{
@@ -22,8 +27,9 @@
   grid-area: login;
   margin-top: 10px;
   border-radius: 15px 0px;
-  width: 100px;
+  width: fit-content;
   height: fit-content;
+  border: 3px inset silver;
 }
 
 .logoutcheck{
@@ -42,16 +48,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 30px;
-  border: 2px solid gold;
+  border: 2px solid silver;
   justify-content: center;
   align-items: space-around;
-  background-color: rgb(233, 227, 197);
+  background-color: grey;
   width: 100%;
 }
 
 .articles{
-  border: 2px solid red;
-  background-color: rgb(236, 199, 199);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,12 +63,13 @@
   list-style: none;
   padding-left: 0;
   width: 100%;
+  gap: 10px;
 }
 
 .articlecontainer{
   width: 100%;
-  border: 2px solid blue;
-  background-color: rgb(199, 199, 241);
+  border: 5px solid silver;
+  border-radius: 5px;
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto auto;
   display: grid;
@@ -74,73 +79,63 @@
   "body body stats";
   justify-items: start;
   margin-left: 0%;
+  margin-bottom: 20px;
   gap: 20px;
 }
 
-.articleitem1{
-  background-color: grey;
-  color:white;
+.articleTitle{
+  text-decoration: underline;
+  font-size: 120%;
+  font-weight: 700;
   grid-area: title;
 }
 
-.articleitem2{
-  background-color: grey;
-  color:white;
+.articleAuthorAvatar{
   grid-area: avatar;
   justify-self: end;
+  border: solid 3px grey;
+  border-radius: 5px;
+  width:fit-content;
 }
 
-.articleitem3{
-  background-color: grey;
-  color:white;
+.articleAuthor{
   grid-area: author;
 }
 
-.articleitem4{
-  background-color: grey;
-  color:white;
+.articleDate{
   grid-area: published;
 }
 
-.articleitem5{
-  background-color: grey;
-  color:white;
+.articleBodySnip{
+  border: 3px solid black;
+  width: 100%;
   grid-area: body;
+  text-align: left;
+  font-weight: 600;
 }
 
-.articleitem6{
-  background-color: grey;
-  color:white;
+.articleLink{
   grid-area: fullarticle;
   justify-self: end;
+  border: 5px solid black;
+  align-self: center;
 }
 
-.articleitem7{
-  background-color: grey;
-  color:white;
+.articleStats{
   grid-area: stats;
-  
+  justify-self: end;
+  border: solid 3px grey;
+  border-radius: 5px;
 }
 
 .bulletless{
   list-style: none;
 }
 
-.topiclist{
-  border: 3px solid salmon;
-  background-color: rgb(243, 198, 193);
-}
 
-.selectopic{
-  border: 3px solid greenyellow;
-  background-color: rgb(221, 245, 186);
-  list-style: none;
-}
 
 .singlearticle{
-  border: 3px solid pink;
-  background-color: rgb(139, 122, 124);
-  color: aqua;
+  border: 5px solid silver;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -161,8 +156,7 @@ ul{
 
 .commentcontainer{
   width: 100%;
-  border: 2px solid green;
-  background-color: rgb(182, 235, 182);
+  border: 5px solid silver;
   grid-template-columns: auto;
   grid-template-rows: auto auto auto auto;
   display: grid;
@@ -174,49 +168,40 @@ ul{
   "delete";
   justify-items: center;
   margin-left: 0%;
+  margin-top: 40px;
   gap: 20px;
 }
 
-.commentitem1{
-  background-color: grey;
-  color:white;
+.commentAuthor{
   grid-area: author;
   justify-self: start;
 }
 
-.commentitem2{
-  background-color: grey;
-  color:white;
+.commentBody{
   grid-area: body;
 }
 
-.commentitem3{
-  background-color: grey;
-  color:white;
+.commentDate{
   grid-area: timestamp;
 }
 
-.commentitem4{
-  background-color: grey;
-  color:white;
+.commentVotes{
   grid-area: votes;
   padding: 10px;
   
 }
-.commentitem5{
+.deleteComment{
   background-color: grey;
   color:white;
   grid-area: delete;
   padding: 10px;
-  
 }
 
 .commentformlink{
   position: fixed;
   right: 5%;
   bottom: 5%;
-  border: 3px solid violet;
-  background-color: rgb(226, 183, 228);
+  border: 3px solid red;
 }
 
 .addCommment{
@@ -241,4 +226,12 @@ ul{
   align-items: center;
   gap: 10px;
   margin-right: 5%;
+}
+
+.errorContainer {
+  position:center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
 }

@@ -22,18 +22,15 @@ const AddComment = () => {
     }
     const handleSubmit = (event) => {
             event.preventDefault();
-            postComment(article_id, comment)
-            .then(() => {
-                setComment(() => {
-                    const newComment = {
-                        username: user.username,
-                        body: ''
-                    }
-                    return newComment;
-                })
-                setHasPosted(true)
+            setHasPosted(true)
+            setComment(() => {
+                const newComment = {
+                    username: user.username,
+                    body: ''
+                }
+                return newComment;
             })
-
+            postComment(article_id, comment)
     }
 
     return <>

@@ -3,16 +3,16 @@ const CommentCard = ({comment}) => {
     
 
     return <div className='commentcontainer'>
-        <p className='commentitem1'>
-            {comment.author}
+        <p className='commentAuthor'>
+            User: {comment.author}
         </p>
-        <p className='commentitem2'>
+        <p className='commentBody'>
             {comment.body}
         </p>
-        <p className='commentitem3'>
+        <p className='commentDate'>
             Posted at: {comment.created_at}
         </p>
-        <p className='commentitem4'>
+        <p className='commentVotes'>
             Votes: {comment.votes} 
             <button>🔼</button>
             <button>🔽</button>

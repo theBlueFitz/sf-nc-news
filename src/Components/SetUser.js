@@ -24,7 +24,7 @@ const SetUser = () => {
 
     return <div className='articles'>
         {user.username ? <span className='userexists'>Please log out first</span> : null}
-        <ul className='topiclist'>
+        <ul>
             {userList.map((person) => {
                 return <li key={person.username} className='selectopic'>
                     {person.username}

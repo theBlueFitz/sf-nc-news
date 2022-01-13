@@ -11,11 +11,11 @@ import { UserContext } from './context/User'
 import SetUser from './Components/SetUser';
 import { useState } from 'react';
 import AddComment from './Components/AddComment';
+import ErrorPage from './Components/ErrorPage';
 
 
 function App() {
   const [user, setUser] = useState({});
-  console.log({user}, 'entire app');
 
   return (
     <UserContext.Provider value={{user, setUser}}>
@@ -25,6 +25,7 @@ function App() {
         <Header />
         <Nav />
         <Routes>
+          <Route path='*' element={<ErrorPage />}/>
           <Route path='/' element={<Home />} />
           <Route path='/articles' element={<Articles  />}/>
           <Route path='/topics' element={<Topics />} />

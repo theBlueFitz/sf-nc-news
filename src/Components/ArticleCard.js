@@ -4,25 +4,27 @@ const ArticleCard = ({news}) => {
     const bodyTease = news.body.split(' ').slice(0,9).join(' ')
 
     return <div className='articlecontainer'>
-        <p className='articleitem1'>
+        <p className='articleTitle'>
             {news.title}
         </p>
-        <p className='articleitem2'>
+        <p className='articleAuthorAvatar'>
             {news.author}
         </p>
-        <p className='articleitem3'>
+        <p className='articleAuthor'>
             Author: {news.author}
         </p>
-        <p className='articleitem4'>
+        <p className='articleDate'>
             Published: {news.created_at}
         </p>
-        <p className='articleitem5'>
+        <p className='articleBodySnip'>
             {bodyTease} ...
         </p>
-        <Link to={`/article/${news.article_id}`} className='articleitem6'>
+        <Link to={`/article/${news.article_id}`} className='articleLink'>
+            <button>
             Read more here!
+            </button>
             </Link> 
-        <p className='articleitem7'>
+        <p className='articleStats'>
             Comment count:{news.comment_count}
             <br></br>
             Votes: {news.votes}

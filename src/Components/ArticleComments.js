@@ -10,26 +10,36 @@ const ArticleComments = () => {
     const [comments, setComments] = useState([]);
     const [hasClicked, setHasClicked] = useState(false)
 
+    
+
     useEffect(() => {
+        setHasClicked(false)
         getArticleComments(article_id)
         .then((res) => {
             setComments(res)
-            setHasClicked(false)
         })
-    }, [article_id]);
+    }, [article_id, hasClicked]);
 
     const handleDelete = (event) => {
         setHasClicked(true);
-        deleteComment(event.target.value).then(()=>{setHasClicked(false)})
+        setComments((currComments) => {
+            const newComments = [...currComments];
+            newComments.filter((comment) => {
+                return comment.comment_id !== comment[event.target.value]
+            })
+            return newComments;
+        })
+        deleteComment(event.target.value)
     }
 
     return <div>
+
         <h2>Comments</h2>
         <ul>
             {comments.map((comment) => {
                 return <li key={comment.comment_id}>
                     <CommentCard comment={comment} />
-                    {(user.username === comment.author && !hasClicked) ? <button className='commentitem5' value={comment.comment_id} onClick={handleDelete}>Delete</button> : null}
+                    {(user.username === comment.author) ? <button className='deleteComment' value={comment.comment_id} onClick={handleDelete}>Delete</button> : null}
                 </li> 
             })}
         </ul>
