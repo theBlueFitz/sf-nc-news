@@ -235,6 +235,7 @@ ul{
 .filtrationyBit{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-self: flex-end;
   justify-items: center;
   align-items: center;

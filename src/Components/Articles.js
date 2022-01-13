@@ -14,8 +14,6 @@ const Articles = () => {
     const [sortBy, setSortBy] = useState(undefined);
     const {topic} = useParams();
 
-    console.log(articleList)
-
     useEffect(() => {
         setIsLoading(true)
         getArticles(topic, order, limit, sortBy)
@@ -37,24 +35,10 @@ const Articles = () => {
     }
 
     const handleSortBy = (event) => {
-        if (event.target.value === 'comment_count' && order === 'ASC') {
-            setArticleList((currList) => {
-                console.log({currList})
-                const newList = [...currList]
-                newList.sort((a,b) => a.comment_count - b.comment_count)
-                return newList;
-            }) } else if (event.target.value === 'comment_count' && order === 'DESC') {
-            setArticleList((currList) => {
-                console.log({currList})
-                const newList = [...currList]
-                newList.sort((a,b) => b.comment_count - a.comment_count)
-                return newList;
-        })}
-         else {
-
-            setSortBy(event.target.value)
-        }
+        setSortBy(event.target.value)
     }
+
+   
 
     return <main className='articles'>
         <h2>{topic} Articles</h2>

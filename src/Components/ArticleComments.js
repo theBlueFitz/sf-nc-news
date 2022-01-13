@@ -1,20 +1,27 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
 import { UserContext } from "../context/User";
-import { getArticleComments } from "../utils/newsApi";
+import { deleteComment, getArticleComments } from "../utils/newsApi";
 import CommentCard from "./CommentCard";
 
 const ArticleComments = () => {
     const {user} = useContext(UserContext);
     const {article_id} = useParams();
     const [comments, setComments] = useState([]);
+    const [hasClicked, setHasClicked] = useState(false)
 
     useEffect(() => {
         getArticleComments(article_id)
         .then((res) => {
             setComments(res)
+            setHasClicked(false)
         })
     }, [article_id]);
+
+    const handleDelete = (event) => {
+        setHasClicked(true);
+        deleteComment(event.target.value).then(()=>{setHasClicked(false)})
+    }
 
     return <div>
         <h2>Comments</h2>
@@ -22,6 +29,7 @@ const ArticleComments = () => {
             {comments.map((comment) => {
                 return <li key={comment.comment_id}>
                     <CommentCard comment={comment} />
+                    {(user.username === comment.author && !hasClicked) ? <button className='commentitem5' value={comment.comment_id} onClick={handleDelete}>Delete</button> : null}
                 </li> 
             })}
         </ul>
