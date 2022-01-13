@@ -16,7 +16,6 @@ const SingleArticle = () => {
             setArticle(news)
             setVotes(news.votes)
         }).catch((err) => {
-            console.log(err.message, 'yoohoo')
             setError({err});
         })
     }, [article_id])
