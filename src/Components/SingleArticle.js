@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { changeArticleVotes, getSingleArticle } from "../utils/newsApi";
+import SpecificError from "./SpecificError";
 
 
 const SingleArticle = () => {
     const [article, setArticle] = useState({});
     const [votes, setVotes] = useState()
+    const [error, setError] = useState(null)
     const {article_id} = useParams();
     
     useEffect(() => {
@@ -13,8 +15,13 @@ const SingleArticle = () => {
         .then((news) => {
             setArticle(news)
             setVotes(news.votes)
+        }).catch((err) => {
+            console.log(err.message, 'yoohoo')
+            setError({err});
         })
     }, [article_id])
+
+    
 
     const upVote = () => {
         const inc_votes = 1;
@@ -40,22 +47,30 @@ const SingleArticle = () => {
         })
     }
 
+    if (error) {
+        return <SpecificError error={error}/>
+    } else {
+
     return <article className='singlearticle'>
-        <h2>{article.title}</h2>
-        <p>Topic: {article.topic}</p>
-        <p>Author: {article.author} | Published: {article.created_at}</p>
-        <p>{article.body}</p> 
-        <p className='vote'>
-            Votes: {votes}
-            <button onClick={upVote}>🔼</button>
-            <button onClick={downVote}>🔽</button>
-        </p>
-        <Link to={`/${article_id}/comments`}>
-            <button>
-                Comments
-            </button>
-        </Link>
+    <h2>{article.title}</h2>
+    <p>Topic: {article.topic}</p>
+    <p>Author: {article.author} | Published: {article.created_at}</p>
+    <p>{article.body}</p> 
+    <p className='vote'>
+        Votes: {votes}
+        <button onClick={upVote}>🔼</button>
+        <button onClick={downVote}>🔽</button>
+    </p>
+    <Link to={`/${article_id}/comments`}>
+        <button>
+            Comments
+        </button>
+    </Link>
     </article>
+    }
+
+
 }
+
 
 export default SingleArticle;
