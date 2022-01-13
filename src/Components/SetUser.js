@@ -26,9 +26,11 @@ const SetUser = () => {
         {user.username ? <span className='userexists'>Please log out first</span> : null}
         <ul>
             {userList.map((person) => {
-                return <li key={person.username} className='selectopic'>
+                return <li key={person.username}>
+                    <hr size='5px'/>
                     {person.username}
                     <button disabled={user.username} value={person.username} onClick={login}>Select User</button>
+                    <hr size='5px'/>
                     </li>
             })}
         </ul>
