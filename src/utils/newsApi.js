@@ -5,7 +5,6 @@ const newsAPI = axios.create({
 });
 
 export const getArticles = (topic, order, limit, sort_by) => {
-    console.log({sort_by})
     return newsAPI.get('/articles', {params: {topic: topic, order: order, limit:limit, sort_by: sort_by}})
     .then((news) => {
         return news.data.articles;
@@ -57,7 +56,4 @@ export const postComment = (article_id, comment) => {
 
 export const deleteComment = (comment_id) => {
     return newsAPI.delete(`/comments/${comment_id}`)
-    .then((res) => {
-        console.log(res);
-    })
 }
