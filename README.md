@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+SF-NC-News
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Online Hosting
+Link to online hosted version of app: https://sf-first-project.netlify.app/articles
 
-## Available Scripts
+Project Summary
+This project was implemented in order to create a front end product that is responsive and developed with a "mobile first" attitude. It is an online application that includes a responsive design, user interactivity and queriable resources.
+It was created using react with a react base setup supplied by react app, axios for back end connectivity and react router dom for routeing.
+
+Copying the repo
+Please follow the instructions below in order to clone your own copy of the repository:
+
+Click on the FORK button in the top right hand corner of the page, then select your username, this should create a copy of the repository in your online github storage.
+Next on your OWN online version of the repo, click on the CODE button highlighted in GREEN, copy the URL provided. (It should look something like this https://github.com/<your username here>/f-nc-news)
+You should now be able to to CLONE the repo using your CLI, type the following in order to do so: git clone https://github.com/<your username here>/nc_news_online.git -There will be a message like this if successful:
+Cloning into 'be-nc-games'...
+remote: Enumerating objects: 642, done.
+remote: Counting objects: 100% (123/123), done.
+remote: Compressing objects: 100% (31/31), done.
+remote: Total 642 (delta 99), reused 91 (delta 90), pack-reused 519
+Receiving objects: 100% (642/642), 296.55 KiB | 4.01 MiB/s, done.
+Resolving deltas: 100% (310/310), done.
+Ensure npm is initialised using the command npm init -y
+
+You will then need to install the following dependencies using npm install <dependecy name>:
+
+react
+create-react-app
+axios
 
 In the project directory, you can run:
 
-### `npm start`
+npm start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in your browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
+The page will reload when you make changes.
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+NOTE: Minimum required versions of Node.js = v17.1.0, axios = ^0.24.0,
+react = 17.0.2, react-router-dom = ^6.2.1
