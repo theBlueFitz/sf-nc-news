@@ -6,6 +6,9 @@
 
 Link to online hosted version of app: https://sf-first-project.netlify.app/
 
+Link to online hosted version of api:
+https://nc-news-sf.herokuapp.com/api
+
 # Project Summary
 
 This project was implemented in order to create a front end product that is responsive and developed with a "mobile first" attitude. It is an online application that includes a responsive design, user interactivity and queriable resources.
