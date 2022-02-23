@@ -24,10 +24,9 @@ const SingleArticle = () => {
     
 
     const upVote = () => {
-        console.log({hasVoted})
         if (hasVoted < 1) {
             setHasVoted((prevCount) => {
-                const newCount = prevCount += 1;
+                const newCount = prevCount + 1;
                 return newCount
             })
             const inc_votes = 1;
@@ -45,7 +44,7 @@ const SingleArticle = () => {
     const downVote = () => {
         if (hasVoted > -1) {
             setHasVoted((prevCount) => {
-                const newCount = prevCount -= 1;
+                const newCount = prevCount - 1;
                 return newCount
             })
             const inc_votes = -1;
