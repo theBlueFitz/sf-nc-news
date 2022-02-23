@@ -57,3 +57,11 @@ export const postComment = (article_id, comment) => {
 export const deleteComment = (comment_id) => {
     return newsAPI.delete(`/comments/${comment_id}`)
 }
+
+export const changeCommentVotes = (comment_id, inc_votes) => {
+    return newsAPI.patch(`/comments/${comment_id}`, {inc_votes})
+    .then((res) => {
+        console.log(res.data)
+        return res.data.comment.votes
+    })
+}
