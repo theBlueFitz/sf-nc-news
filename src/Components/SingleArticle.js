@@ -8,6 +8,7 @@ const SingleArticle = () => {
     const [article, setArticle] = useState({});
     const [votes, setVotes] = useState()
     const [error, setError] = useState(null)
+    const [hasVoted, setHasVoted] = useState(0)
     const {article_id} = useParams();
     
     useEffect(() => {
@@ -23,27 +24,40 @@ const SingleArticle = () => {
     
 
     const upVote = () => {
-        const inc_votes = 1;
-        setVotes((votes)=>{
-            const newVotes = votes + 1;
-            return newVotes;
-        })
-        changeArticleVotes(article_id, inc_votes)
-        .then((res) => {
-            setVotes(res)
-        })
+        console.log({hasVoted})
+        if (hasVoted < 1) {
+            setHasVoted((prevCount) => {
+                const newCount = prevCount += 1;
+                return newCount
+            })
+            const inc_votes = 1;
+            setVotes((votes)=>{
+                const newVotes = votes + 1;
+                return newVotes;
+            })
+            changeArticleVotes(article_id, inc_votes)
+            .then((res) => {
+                setVotes(res)
+            })
+        }
     }
 
     const downVote = () => {
-        const inc_votes = -1;
-        setVotes((votes)=>{
-            const newVotes = votes - 1;
-            return newVotes
-        })
-        changeArticleVotes(article_id, inc_votes)
-        .then((res) => {
-            setVotes(res)
-        })
+        if (hasVoted > -1) {
+            setHasVoted((prevCount) => {
+                const newCount = prevCount -= 1;
+                return newCount
+            })
+            const inc_votes = -1;
+            setVotes((votes)=>{
+                const newVotes = votes - 1;
+                return newVotes
+            })
+            changeArticleVotes(article_id, inc_votes)
+            .then((res) => {
+                setVotes(res)
+            })
+        }
     }
 
     if (error) {
