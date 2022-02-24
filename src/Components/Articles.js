@@ -15,6 +15,7 @@ const Articles = () => {
     const [sortBy, setSortBy] = useState(undefined);
     const [p, setP] = useState(0)
     const {topic} = useParams();
+    console.log(totalcount)
 
     useEffect(() => {
         setIsLoading(true)
@@ -30,18 +31,19 @@ const Articles = () => {
     }, [topic, order, limit, sortBy, p])
 
     const handleOrder = (event) => {
+        setP(0)
         setOrder(event.target.value)
     }
 
     const handleLimit = (event) => {
+        setP(0)
         setLimit(event.target.value)
     }
 
     const handleSortBy = (event) => {
+        setP(0)
         setSortBy(event.target.value)
     }
-
-   
 
     return <main className='articles'>
         <h2>{topic} Articles</h2>
@@ -87,7 +89,7 @@ const Articles = () => {
         }>Previous</button>
         <p>{p + 1}</p>
         <button 
-        disabled= {limit * p >= totalcount}
+        disabled= {limit * (p+1) >= totalcount}
         onClick={() => {
             setP((currP) => currP + 1)
         }}>Next</button>
