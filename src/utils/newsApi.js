@@ -1,13 +1,13 @@
-import axios from 'axios';
+    import axios from 'axios';
 
 const newsAPI = axios.create({
     baseURL: 'https://nc-news-sf.herokuapp.com/api'
 });
 
-export const getArticles = (topic, order, limit, sort_by) => {
-    return newsAPI.get('/articles', {params: {topic: topic, order: order, limit:limit, sort_by: sort_by}})
+export const getArticles = (topic, order, limit, sort_by, p) => {
+    return newsAPI.get('/articles', {params: {topic: topic, order: order, limit:limit, sort_by: sort_by, p:p}})
     .then((news) => {
-        return news.data.articles;
+        return news.data;
     })
     .catch((err) => {
         console.dir(err)

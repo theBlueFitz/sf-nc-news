@@ -7,24 +7,27 @@ import ellipsis from './ellipsis.svg';
 
 
 const Articles = () => {
+    const [totalcount, setTotalCount] = useState(0)
     const [articleList, setArticleList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [order, setOrder] = useState(undefined)
-    const [limit, setLimit] = useState(undefined);
+    const [limit, setLimit] = useState(10);
     const [sortBy, setSortBy] = useState(undefined);
+    const [p, setP] = useState(0)
     const {topic} = useParams();
 
     useEffect(() => {
         setIsLoading(true)
-        getArticles(topic, order, limit, sortBy)
-        .then((articles) => {
+        getArticles(topic, order, limit, sortBy, p)
+        .then((res) => {
             setIsLoading(false);
-            setArticleList(articles)
+            setTotalCount(res.total_count)
+            setArticleList(res.articles)
         })
         .catch((err) => {
             console.log(err)
         })
-    }, [topic, order, limit, sortBy])
+    }, [topic, order, limit, sortBy, p])
 
     const handleOrder = (event) => {
         setOrder(event.target.value)
@@ -74,9 +77,20 @@ const Articles = () => {
                 {articleList.map((news) => {
             return <ArticleCard news={news} key={news.article_id} />
         })}
-
         </ul>
         }
+        <button 
+        disabled = {p === 0}
+        onClick={() => {
+            setP((currP) => currP - 1)
+        }
+        }>Previous</button>
+        <p>{p + 1}</p>
+        <button 
+        disabled= {limit * p >= totalcount}
+        onClick={() => {
+            setP((currP) => currP + 1)
+        }}>Next</button>
     </main>
 }
 
